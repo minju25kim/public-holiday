@@ -4,10 +4,10 @@ import Stack from "@mui/material/Stack";
 function ChipLayout({ day }) {
   return (
     <>
-      {day.counties ? (
+      {day.countries ? (
         <Stack direction="row" spacing={0.5}>
-          {day.counties.map((county) => (
-            <Chip label={county} sx={{ background: "#fff", color: "#000" }} />
+          {day.counties.map((country) => (
+            <Chip label={country} sx={{ background: "#fff", color: "#000" }} />
           ))}
         </Stack>
       ) : (

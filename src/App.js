@@ -1,10 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import ViewToggle from "./components/toggle/ViewToggle";
-import GlobalFixedChip from "./components/chip/GlobalFixedChip";
-import ComingOverChip from "./components/chip/ComingOverChip";
 import ResetChip from "./components/chip/ResetChip";
-import CountyToggle from "./components/toggle/CountyToggle";
+import CountryToggle from "./components/toggle/CountryToggle";
 import FilteredData from "./components/FilteredData";
 
 import Container from "@mui/material/Container";
@@ -13,15 +10,11 @@ import Stack from "@mui/material/Stack";
 
 function App() {
   const [data, setData] = useState([]);
-  const [view, setView] = useState("stack");
-  const [global, setGlobal] = useState(false);
-  const [fixed, setFixed] = useState(false);
-  const [county, setCounty] = useState("all");
-  const [coming, setComing] = useState(false);
-  const [over, setOver] = useState(false);
+  const [country, setCountry] = useState("KR");
   const [reset, setReset] = useState(false);
 
-  const URL = "https://date.nager.at/api/v2/publicholidays/2022/Gb";
+  const year = new Date().getFullYear();
+  const URL = `https://date.nager.at/api/v3/publicholidays/${year}/${country}`;
 
   useEffect(() => {
     fetch(URL)
@@ -46,7 +39,7 @@ function App() {
             mb: 5,
           }}
         >
-          <h1>2022 GB Public holidays</h1>
+          <h1>{year} Public holidays</h1>
           <Box
             sx={{
               display: "flex",
@@ -54,43 +47,11 @@ function App() {
               alignItems: "center",
             }}
           >
-            <CountyToggle county={county} setCounty={setCounty} />
-            <ViewToggle view={view} setView={setView} />
+            <CountryToggle country={country} setCountry={setCountry} />
           </Box>
-          <Stack direction="row" spacing={1}>
-            <ComingOverChip
-              coming={coming}
-              setComing={setComing}
-              over={over}
-              setOver={setOver}
-            />
-            <GlobalFixedChip
-              global={global}
-              setGlobal={setGlobal}
-              fixed={fixed}
-              setFixed={setFixed}
-            />
-            <ResetChip
-              global={global}
-              fixed={fixed}
-              coming={coming}
-              over={over}
-              setComing={setComing}
-              setOver={setOver}
-              setGlobal={setGlobal}
-              setFixed={setFixed}
-              reset={reset}
-              setReset={setReset}
-            />
-          </Stack>
           <FilteredData
             data={data}
-            global={global}
-            fixed={fixed}
-            county={county}
-            coming={coming}
-            over={over}
-            view={view}
+            country={country}
           />
         </Container>
         <Box

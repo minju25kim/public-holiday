@@ -1,12 +1,13 @@
 import * as React from "react";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
-import ChipLayout from "../chip/CountyChip";
+import ChipLayout from "../chip/CountryChip";
 import { blueGrey } from "@mui/material/colors";
 
-function Menu({ data, global, fixed }) {
+function Menu({ data }) {
   const pastBackground = blueGrey.A400;
   const comingBackground = blueGrey[50];
+
   function Content({ day, index }) {
     return (
       <>
