@@ -1,11 +1,11 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import CountryToggle from "./components/toggle/CountryToggle";
+import CountryToggle from "./components/CountryToggle";
 
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 
-import StackLayout from "./components/layout/StackLayout";
+import StackLayout from "./components/StackLayout";
 import CalculateDays from "./components/CalculateDays";
 
 function App() {
