@@ -8,7 +8,7 @@ function CalculateDays({ data }) {
   }
 
   const left = calculateNumber(data);
-  return <h2>{left.length} holidays left.</h2>;
+  return <h2>{left.length} holiday(s) left</h2>;
 }
 
 export default CalculateDays;

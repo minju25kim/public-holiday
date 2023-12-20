@@ -58,24 +58,31 @@ function App() {
             p: 2,
           }}
         >
-          This page is using {"  "}
           <span>
-            <a href="https://date.nager.at/api/v2/publicholidays/2022/GB">
-              API
+            <a href="https://github.com/minju25kim/public-holidays">
+              Repository
             </a>
           </span>
           ,{"  "}
           <span>
+            <a href="https://date.nager.at/">
+              API
+            </a>
+          </span>
+          {" "}and{" "}
+          <span>
             <a href="https://mui.com/material-ui/getting-started/overview/">
               Materia UI
             </a>
-          </span>{" "}
-          and
-          <span>
-            {" "}
-            <a href="https://reactjs.org/docs/getting-started.html">ReactJS</a>
           </span>
         </Box>
+        <Box
+          component="footer"
+          sx={{
+            textAlign: "center",
+            p: 2,
+          }}
+        >Looking for a designer,,,</Box>
       </>
     );
   }
