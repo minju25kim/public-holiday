@@ -1,20 +1,24 @@
 import * as React from "react";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
-import ChipLayout from "../chip/CountryChip";
+import Chip from "@mui/material/Chip";
 import { blueGrey } from "@mui/material/colors";
+import { Box } from "@mui/material";
 
-function Menu({ data }) {
+function StackLayout({ data, country }) {
   const pastBackground = blueGrey.A400;
   const comingBackground = blueGrey[50];
 
-  function Content({ day, index }) {
+  function Content({ day }) {
     return (
       <>
         <span>
           <b>{day.date}</b> {day.localName}
         </span>
-        <ChipLayout day={day} />
+        <Chip
+          label={country.toUpperCase()}
+          sx={{ background: "#fff", color: "#000" }}
+        />
       </>
     );
   }
@@ -23,7 +27,7 @@ function Menu({ data }) {
     <Stack spacing={1}>
       {data.map((day, index) => {
         return (
-          <>
+          <Box key={index}>
             {index !== 0 ? (
               new Date(data[index].date).getMonth() ===
               new Date(data[index - 1].date).getMonth() ? null : (
@@ -50,7 +54,7 @@ function Menu({ data }) {
                 }}
               >
                 {" "}
-                <Content day={day} key={day} index={index} />
+                <Content day={day} />
               </Paper>
             ) : (
               <Paper
@@ -66,14 +70,14 @@ function Menu({ data }) {
                 }}
               >
                 {" "}
-                <Content day={day} key={day} index={index} />
+                <Content day={day} />
               </Paper>
             )}
-          </>
+          </Box>
         );
       })}
     </Stack>
   );
 }
 
-export default Menu;
+export default StackLayout;

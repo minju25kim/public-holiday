@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
-function ChipLayout({ country, setCountry }) {
+function CountryToggle({ country, setCountry }) {
   function handleCountry(event) {
     setCountry(event.target.value);
   }
@@ -11,15 +11,14 @@ function ChipLayout({ country, setCountry }) {
       <ToggleButtonGroup
         exclusive
         value={country}
-        aria-label="county-selection"
+        aria-label="country-selection"
         onChange={handleCountry}
       >
         <ToggleButton value="kr">KR</ToggleButton>
         <ToggleButton value="gb">GB</ToggleButton>
-        <ToggleButton value="all">ALL</ToggleButton>
       </ToggleButtonGroup>
     </Box>
   );
 }
 
-export default ChipLayout;
+export default CountryToggle;

@@ -1,17 +1,16 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import ResetChip from "./components/chip/ResetChip";
 import CountryToggle from "./components/toggle/CountryToggle";
-import FilteredData from "./components/FilteredData";
 
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
+
+import StackLayout from "./components/layout/StackLayout";
+import CalculateDays from "./components/CalculateDays";
 
 function App() {
   const [data, setData] = useState([]);
-  const [country, setCountry] = useState("KR");
-  const [reset, setReset] = useState(false);
+  const [country, setCountry] = useState("kr");
 
   const year = new Date().getFullYear();
   const URL = `https://date.nager.at/api/v3/publicholidays/${year}/${country}`;
@@ -23,7 +22,7 @@ function App() {
         return res.json();
       })
       .then((json) => setData(json));
-  }, []);
+  }, [country,URL]);
 
   if (data) {
     return (
@@ -49,10 +48,8 @@ function App() {
           >
             <CountryToggle country={country} setCountry={setCountry} />
           </Box>
-          <FilteredData
-            data={data}
-            country={country}
-          />
+          <CalculateDays data={data} />
+          <StackLayout data={data} country={country} />
         </Container>
         <Box
           component="footer"
