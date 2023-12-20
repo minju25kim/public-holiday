@@ -38,7 +38,7 @@ function App() {
             mb: 5,
           }}
         >
-          <h1>{year} Public holidays</h1>
+          <h1>{year} Public holiday</h1>
           <Box
             sx={{
               display: "flex",
