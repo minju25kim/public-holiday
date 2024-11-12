@@ -25,7 +25,7 @@ const App: React.FC = () => {
   const year = new Date().getFullYear();
 
   React.useEffect(() => {
-    const URL = `https://date.nager.at/api/v3/publicholidays/${year}/${countryCode}`;
+    const URL = `https://date.nager.at/api/v3/publicholidays/${new Date().getFullYear()}/${countryCode}`;
     const fetchData = async () => {
       try {
         const res = await fetch(URL);
